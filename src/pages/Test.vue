@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <router-view />
+  测试页面
 </template>
 
 <style scoped>
