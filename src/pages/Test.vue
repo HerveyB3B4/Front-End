@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  测试页面
+  <n-tag>NaiveUI测试页面</n-tag>
 </template>
 
 <style scoped>
