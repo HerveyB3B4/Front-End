@@ -7,20 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Description: typeof import('./src/components/discussion/description.vue')['default']
-    NButtom: typeof import('naive-ui')['NButtom']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NFlex: typeof import('naive-ui')['NFlex']
-    NH2: typeof import('naive-ui')['NH2']
-    NIcon: typeof import('naive-ui')['NIcon']
-    NLayout: typeof import('naive-ui')['NLayout']
-    NLayoutContent: typeof import('naive-ui')['NLayoutContent']
-    NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
-    NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
-    NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NPagination: typeof import('naive-ui')['NPagination']
-    NTag: typeof import('naive-ui')['NTag']
     Post: typeof import('./src/components/discussion/post.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
