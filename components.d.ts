@@ -10,8 +10,10 @@ declare module 'vue' {
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NFlex: typeof import('naive-ui')['NFlex']
+    NH1: typeof import('naive-ui')['NH1']
     NPagination: typeof import('naive-ui')['NPagination']
-    Post: typeof import('./src/components/discussion/post.vue')['default']
+    NText: typeof import('naive-ui')['NText']
+    Post: typeof import('./src/components/square/post.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

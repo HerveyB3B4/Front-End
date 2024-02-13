@@ -1,14 +1,24 @@
 import request from "../request";
-import { PageInfo, PostInfo } from "../../types/discussion/discussionInfo";
+import { PageInfo, PostInfo } from "../../types/square/squareInfo";
 
-export default class discussionService {
+export default class squareService {
+    static async getAnnouncement(): Promise<any> {
+        return request({
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            method: "get",
+            url: "/api/square/announcement",
+        })
+    }
+
     static async createNewPost(data: PostInfo): Promise<any> {
         return request({
             "headers": {
                 "Content-Type": "application/json"
             },
             method: "post",
-            url: "/square/topic/create",
+            url: "/api/square/topic/new",
             data: data,
         })
     }
@@ -19,7 +29,7 @@ export default class discussionService {
                 "Content-Type": "application/json"
             },
             method: "get",
-            url: "/square/topic",
+            url: "/api/square/topic/list",
             params: data,
         })
     }
