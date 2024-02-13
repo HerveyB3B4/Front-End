@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import router from "../../routers";
 import { onMounted, ref } from "vue";
+import router from "../../routers";
 import PostVue from "../../components/square/post.vue";
 import { PageInfo, PostInfo } from "../../types/square/squareInfo";
 import squareService from "../../apis/square/squareService";
@@ -113,4 +113,4 @@ onMounted(() => {
     bottom: 0;
     left: 0;
 }
-</style>../../apis/square/discussionService../../types/square/discussionInfo
+</style>

@@ -1,5 +1,5 @@
 import request from "../request";
-import { PageInfo, PostInfo } from "../../types/square/squareInfo";
+import { PageInfo, CreatePostInfo } from "../../types/square/squareInfo";
 
 export default class squareService {
     static async getAnnouncement(): Promise<any> {
@@ -12,7 +12,7 @@ export default class squareService {
         })
     }
 
-    static async createNewPost(data: PostInfo): Promise<any> {
+    static async createNewPost(data: CreatePostInfo): Promise<any> {
         return request({
             "headers": {
                 "Content-Type": "application/json"
