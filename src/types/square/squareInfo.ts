@@ -1,7 +1,11 @@
 export interface PostInfo {
+    topicID: string,
     title: string,
-    like: string,
-    createTime: string
+    content: string,
+    autherID: string,
+    likes: number,
+    views: number,
+    createAt: string
 }
 
 export interface PageInfo {

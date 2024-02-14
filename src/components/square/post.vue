@@ -1,16 +1,22 @@
 <script setup lang="ts">
-    const props = defineProps(['postInfo']);
+import router from '../../routers';
+
+const props = defineProps(['postInfo']);
+
+const pushToPostPage = (topicID: string) => {
+  router.push("/square/show/" + topicID)
+}
 </script>
 
 <template>
-  <n-card :title="props.postInfo.title" hoverable>
-    {{ props.postInfo.like }}
-    {{ props.postInfo.createTime }}
+  <n-card :title="props.postInfo.title" hoverable @click="pushToPostPage(props.postInfo.topicID)">
+    {{ props.postInfo.content }}
+    {{ props.postInfo.createAt }}
   </n-card>
 </template>
 
 <style>
 .n-card {
-    width: 80%;
+  width: 80%;
 }
 </style>

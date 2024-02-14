@@ -34,4 +34,16 @@ export default class squareService {
         })
     }
 
+    static async getPostDetail(topicID: string): Promise<any> {
+        return request({
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            method: "get",
+            url: "/api/square/topic",
+            params: {
+                topicId: topicID,
+            },
+        })
+    }
 }
