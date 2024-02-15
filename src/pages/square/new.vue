@@ -5,15 +5,15 @@ import { CreatePostInfo } from "../../types/square/squareInfo";
 import squareService from "../../apis/square/squareService";
 
 const createPostInfo = ref<CreatePostInfo>({
-    userID: '',
-    title: '',
-    content: '',
+    UserID: '',
+    Title: '',
+    Content: '',
 })
 
 const Submit = async () => {
     console.log("发送请求:发表话题", createPostInfo.value);
-    const res = await squareService.createNewPost(createPostInfo.value);
-    if (res.data.code === 200 && res.data.message === 'success') {
+    const res = await squareService.postCreateNewPost(createPostInfo.value);
+    if (res.data.code === 200 && res.data.message === 'Success') {
         console.log("请求成功");
         router.push("/square")
     } else {
@@ -23,7 +23,7 @@ const Submit = async () => {
 
 onMounted(() => {
     // TODO: 读取pinia中的userID
-    createPostInfo.value.userID = "testID";
+    createPostInfo.value.UserID = "testID";
 })
 </script>
 
@@ -34,10 +34,10 @@ onMounted(() => {
             <n-card>
                 <n-form>
                     <n-form-item label="标题">
-                        <n-input v-model:value="createPostInfo.title" />
+                        <n-input v-model:value="createPostInfo.Title" />
                     </n-form-item>
                     <n-form-item label="内容">
-                        <n-input v-model:value="createPostInfo.content" type="textarea" />
+                        <n-input v-model:value="createPostInfo.Content" type="textarea" />
                     </n-form-item>
                     <n-flex justify="end">
                         <n-button type="success" @click="Submit">

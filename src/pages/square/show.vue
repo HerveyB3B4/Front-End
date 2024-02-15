@@ -7,20 +7,20 @@ const props = defineProps(['topicID']);
 
 const postInfo = ref<PostInfo>(
     {
-        topicID: 'topicID',
-        title: 'title',
-        content: 'content',
-        autherID: 'autherID',
-        likes: 0,
-        views: 0,
-        createAt: 'yy:mm:dd'
+        TopicID: 'topicID',
+        Title: 'title',
+        Content: 'content',
+        AutherID: 'autherID',
+        Likes: 0,
+        Views: 0,
+        CreatedAt: 'yy:mm:dd'
     }
 )
 
 const getPostInfo = async (topicID: string) => {
     console.log("发送请求:获取帖子列表", topicID);
     const res = await squareService.getPostDetail(topicID);
-    if (res.data.code === 200 && res.data.message === 'success') {
+    if (res.data.code === 200 && res.data.message === 'Success') {
         console.log("请求成功");
         postInfo.value = res.data.data;
         console.log(postInfo);

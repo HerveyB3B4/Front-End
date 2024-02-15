@@ -9,9 +9,9 @@ const pushToPostPage = (topicID: string) => {
 </script>
 
 <template>
-  <n-card :title="props.postInfo.title" hoverable @click="pushToPostPage(props.postInfo.topicID)">
-    {{ props.postInfo.content }}
-    {{ props.postInfo.createAt }}
+  <n-card :title="props.postInfo.Title" hoverable @click="pushToPostPage(props.postInfo.TopicID)">
+    {{ props.postInfo.Content }}
+    {{ props.postInfo.CreateAt }}
   </n-card>
 </template>
 
