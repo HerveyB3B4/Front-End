@@ -28,25 +28,23 @@ onMounted(() => {
 </script>
 
 <template>
-    <n-flex justify="center">
-        <n-flex vertical>
-            <n-h1>发表话题</n-h1>
-            <n-card>
-                <n-form>
-                    <n-form-item label="标题">
-                        <n-input v-model:value="createPostInfo.Title" />
-                    </n-form-item>
-                    <n-form-item label="内容">
-                        <n-input v-model:value="createPostInfo.Content" type="textarea" />
-                    </n-form-item>
-                    <n-flex justify="end">
-                        <n-button type="success" @click="Submit">
-                            提交
-                        </n-button>
-                    </n-flex>
-                </n-form>
-            </n-card>
-        </n-flex>
+    <n-flex vertical align="center">
+        <n-h1>发表话题</n-h1>
+        <n-card>
+            <n-form>
+                <n-form-item label="标题">
+                    <n-input v-model:value="createPostInfo.Title" />
+                </n-form-item>
+                <n-form-item label="内容">
+                    <n-input v-model:value="createPostInfo.Content" class="textarea" type="textarea" />
+                </n-form-item>
+                <n-flex justify="end">
+                    <n-button type="success" @click="Submit">
+                        提交
+                    </n-button>
+                </n-flex>
+            </n-form>
+        </n-card>
     </n-flex>
 </template>
 

@@ -8,18 +8,11 @@ const props = defineProps(['topicID']);
 </script>
 
 <template>
-    <n-flex justify="center">
-        <n-flex vertical class="postMain">
-            <detailVue :topicID="props.topicID"/>
-            <replyEditorVue :topicID="props.topicID"/>
-            <replyVue :topicID="props.topicID"/>
-        </n-flex>
+    <n-flex vertical align="center">
+        <detailVue :topicID="props.topicID" />
+        <replyEditorVue :topicID="props.topicID" />
+        <replyVue :topicID="props.topicID" />
     </n-flex>
 </template>
 
-<style>
-.postMain {
-    width: 60%;
-    align-items: center;
-}
-</style>
+<style></style>

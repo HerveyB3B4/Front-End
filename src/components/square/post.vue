@@ -23,7 +23,4 @@ const pushToPostPage = (topicID: string) => {
 </template>
 
 <style>
-.n-card {
-  width: 80%;
-}
 </style>

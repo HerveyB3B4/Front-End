@@ -29,7 +29,7 @@ onMounted(() => {
 
 <template>
     <n-card hoverable>
-        <n-input v-model:value="createReplyInfo.Content" type="textarea" placeholder="发表回复" round />
+        <n-input v-model:value="createReplyInfo.Content" class="textarea" type="textarea" placeholder="发表回复" round />
         <template #footer>
             <n-flex align="center" justify="end">
                 <n-button type="info" @click="Submit">发表回复</n-button>
@@ -39,9 +39,4 @@ onMounted(() => {
 </template>
 
 <style>
-.n-input {
-    text-align: start;
-    height: 100px;
-    resize: none;
-}
 </style>

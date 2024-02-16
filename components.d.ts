@@ -21,7 +21,7 @@ declare module 'vue' {
     NText: typeof import('naive-ui')['NText']
     NTime: typeof import('naive-ui')['NTime']
     Post: typeof import('./src/components/square/post.vue')['default']
-    Postdetail: typeof import('./src/components/square/postdetail.vue')['default']
+    PostEditor: typeof import('./src/components/square/postEditor.vue')['default']
     Reply: typeof import('./src/components/square/reply.vue')['default']
     ReplyEditor: typeof import('./src/components/square/replyEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

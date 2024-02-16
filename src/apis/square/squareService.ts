@@ -85,7 +85,7 @@ export default class squareService {
             data: data,
         })
     }
-
+    // TODO:该接口暂未使用
     static async getViewsAndLikes(topicID: string): Promise<any> {
         return request({
             "headers": {

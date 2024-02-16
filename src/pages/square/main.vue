@@ -10,14 +10,20 @@
 </template>
 
 <style>
+.n-input {
+    text-align: start;
+}
+.textarea {
+    height: 100px;
+    resize: none;
+}
 .main {
-    width: 100%;
+    width: 60%;
     height: 100%;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 20%;
 }
-
 .background {
     background: url("https://pic1.zhimg.com/v2-ddc32c9e22613004d0ca22cf60cefeac_r.jpg") center center no-repeat;
     opacity: 0.7;
