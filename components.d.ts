@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Detail: typeof import('./src/components/square/detail.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NFlex: typeof import('naive-ui')['NFlex']
@@ -16,9 +17,13 @@ declare module 'vue' {
     NIcon: typeof import('naive-ui')['NIcon']
     NInput: typeof import('naive-ui')['NInput']
     NPagination: typeof import('naive-ui')['NPagination']
+    NTag: typeof import('naive-ui')['NTag']
     NText: typeof import('naive-ui')['NText']
     NTime: typeof import('naive-ui')['NTime']
     Post: typeof import('./src/components/square/post.vue')['default']
+    Postdetail: typeof import('./src/components/square/postdetail.vue')['default']
+    Reply: typeof import('./src/components/square/reply.vue')['default']
+    ReplyEditor: typeof import('./src/components/square/replyEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

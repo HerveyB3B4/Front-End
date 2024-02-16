@@ -43,8 +43,8 @@ const getPostsInfo = async (postsInfo: QueryPostsInfo) => {
     const res = await squareService.getPostList(postsInfo);
     if (res.data.code === 200 && res.data.message === 'Success') {
         console.log("请求成功");
-        postList.value = res.data.data.topicList;
-        totalPage.value = res.data.data.totalPage;
+        postList.value = res.data.data.TopicList;
+        totalPage.value = res.data.data.TotalPage;
     } else {
         console.log("请求失败,错误消息: Code", res.data.code, "Message", res.data.message);
     }
