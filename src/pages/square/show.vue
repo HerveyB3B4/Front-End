@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import squareService from '../../apis/square/squareService';
+import { onMounted, ref } from "vue";
+import { createDiscreteApi } from "naive-ui";
+import { TimeOutline, EyeOutline, HeartOutline, Heart } from "@vicons/ionicons5";
+import squareService from "../../apis/square/squareService";
 import { PostInfo } from "../../types/square/squareInfo";
+import router from "../../routers";
 
 const props = defineProps(['topicID']);
 
@@ -13,9 +16,11 @@ const postInfo = ref<PostInfo>(
         AutherID: 'autherID',
         Likes: 0,
         Views: 0,
-        CreatedAt: 'yy:mm:dd'
+        CreatedAt: 0,
     }
 )
+
+const likePost = ref(false);
 
 const getPostInfo = async (topicID: string) => {
     console.log("发送请求:获取帖子列表", topicID);
@@ -29,6 +34,48 @@ const getPostInfo = async (topicID: string) => {
     }
 };
 
+const putlikesOnPost = async (topicID: string) => {
+    console.log("发送请求:点赞帖子", topicID);
+    const res = await squareService.putLikesOnPost(topicID);
+    if (res.data.code === 200 && res.data.message === 'Success') {
+        console.log("请求成功");
+        postInfo.value.Likes++;
+        likePost.value = true;
+    } else {
+        console.log("请求失败,错误消息: Code", res.data.code, "Message", res.data.message);
+    }
+}
+
+const pushToEditPost = (topicID: string) => {
+    router.push("/square/edit/" + topicID)
+}
+
+const { message, dialog } = createDiscreteApi(['message', 'dialog'])
+
+const delPost = async (topicID: string) => {
+    console.log("发送请求:删除帖子", topicID);
+    const res = await squareService.delPost(topicID);
+    if (res.data.code === 200 && res.data.message === 'Success') {
+        console.log("请求成功");
+        message.success("成功删除帖子");
+        router.push("/square");
+    } else {
+        console.log("请求失败,错误消息: Code", res.data.code, "Message", res.data.message);
+    }
+}
+
+const deletePost = async (topicID: string) => {
+    dialog.error({
+        title: '删除帖子',
+        content: '确定删除帖子？',
+        negativeText: '再想想',
+        positiveText: '是',
+        onPositiveClick: () => {
+            delPost(topicID);
+        }
+    })
+}
+
 onMounted(() => {
     getPostInfo(props.topicID);
 })
@@ -36,11 +83,40 @@ onMounted(() => {
 
 <template>
     <n-flex justify="center">
-        <n-flex vertical>
-            <n-h1>施工中... 帖子详情 {{ props.topicID }}</n-h1>
-            
+        <n-flex vertical class="postMain">
+            <n-card :title="postInfo.Title">
+                <template #header-extra>
+                    <n-flex align="center" justify="end">
+                        <n-icon size="20" :component="TimeOutline" />
+                        <n-time :time="postInfo.CreatedAt" />
+                    </n-flex>
+                </template>
+                <n-flex justify="start">
+                    {{ postInfo.Content }}
+                </n-flex>
+                <template #footer>
+                    <n-flex align="center" justify="end">
+                        <n-icon size="20" :component="EyeOutline" />
+                        {{ postInfo.Views }}
+                        <n-icon size="20" :component="likePost ? Heart : HeartOutline"
+                            @click="putlikesOnPost(postInfo.TopicID)" />
+                        {{ postInfo.Likes }}
+                    </n-flex>
+                </template>
+                <template #action>
+                    <n-flex align="center" justify="end">
+                        <n-button type="info" @click="pushToEditPost(postInfo.TopicID)">编辑</n-button>
+                        <n-button type="error" @click="deletePost(postInfo.TopicID)">删除</n-button>
+                    </n-flex>
+                </template>
+            </n-card>
         </n-flex>
     </n-flex>
 </template>
 
-<style></style>
+<style>
+.postMain {
+    width: 60%;
+    align-items: center;
+}
+</style>

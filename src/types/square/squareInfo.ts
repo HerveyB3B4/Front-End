@@ -1,7 +1,7 @@
 export interface AnnouncementInfo {
     AutherID: string,
     Content: string,
-    CreatedAt: string,
+    CreatedAt: number,
 }
 
 export interface CreatePostInfo {
@@ -27,7 +27,7 @@ export interface PostInfo {
     AutherID: string,
     Likes: number,
     Views: number,
-    CreatedAt: string,
+    CreatedAt: number,
 }
 
 export interface QueryPostsInfo {
@@ -48,7 +48,7 @@ export interface ReplyInfo {
     Content: string,
     AutherID: string,
     Likes: number,
-    CreatedAt: string,
+    CreatedAt: number,
 }
 
 export interface ViewsAndLikes {

@@ -8,7 +8,7 @@ import squareService from "../../apis/square/squareService";
 const announcementInfo = ref<AnnouncementInfo>({
     AutherID: 'autherID',
     Content: 'Content',
-    CreatedAt: 'yy:mm:dd hh:mm:ss',
+    CreatedAt: 0,
 });
 const postsInfo = ref<QueryPostsInfo>({
     Page: 1,
@@ -22,7 +22,7 @@ const postList = ref<PostInfo[]>([
         AutherID: 'autherID',
         Likes: 0,
         Views: 0,
-        CreatedAt: 'yy:mm:dd hh:mm:ss'
+        CreatedAt: 0,
     },
 ]);
 const totalPage = ref(100);
